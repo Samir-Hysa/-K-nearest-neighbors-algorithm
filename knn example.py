@@ -6,8 +6,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import linear_model, preprocessing
 import pickle
 
+#load the data
 data = pd.read_csv("car.data")
 
+# adjust our data
 encode = preprocessing.LabelEncoder()
 buying = encode.fit_transform(list(data["buying"]))
 maint = encode.fit_transform(list(data["maint"]))
@@ -35,7 +37,7 @@ for _ in range(2000):
         with open("car_model", "wb")as f:
             pickle.dump(model, f)"""
 
-
+# calling the .pickel file and use it
 pickle_open = open("student_model.pickle", "rb")
 model = pickle.load(pickle_open)
 predicted = model.predict(x_test)
